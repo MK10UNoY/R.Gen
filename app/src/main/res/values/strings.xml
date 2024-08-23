@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RNGen App</string>
+    <string name="music_on" />
+    <string name="music_off" />
+</resources>
