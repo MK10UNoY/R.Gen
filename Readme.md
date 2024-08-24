@@ -10,7 +10,7 @@ This is a simple number guessing game built using Jetpack Compose for Android. T
 - **Game Over Screen**: Players are informed when they have won or lost and can choose to play again.
 
 ## Screenshots
-![Gameplay Screenshot](https://github.com/MK10UNoY/BeginnersGuidetoAndroid/tree/main/screenshots/win%20(1).png)
+![Gameplay Screenshot](https://github.com/MK10UNoY/BeginnersGuidetoAndroid/tree/main/screenshots/win%20(1).png?raw=true)
 ![Home Screen Screenshot](https://github.com/MK10UNoY/BeginnersGuidetoAndroid/tree/main/screenshots/win%20(2).png)
 ![Lose Screen Screenshot](https://github.com/MK10UNoY/BeginnersGuidetoAndroid/tree/main/screenshots/win%20(3).png)
 
