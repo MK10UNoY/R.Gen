@@ -1,4 +1,4 @@
-# Number Guessing Game
+# R.GEN - Number Guessing game
 
 ## Overview
 This is a simple number guessing game built using Jetpack Compose for Android. The game challenges the player to guess a randomly generated number within a specified range and within a limited number of attempts.
@@ -24,7 +24,7 @@ This is a simple number guessing game built using Jetpack Compose for Android. T
 ## Installation
 1. Clone this repository.
     ```bash
-    git clone https://github.com/your-username/number-guessing-game.git
+    git clone https://github.com/MK10UNoY/R.Gen.git
     ```
 2. Open the project in Android Studio.
 3. Build and run the app on an emulator or physical device.
