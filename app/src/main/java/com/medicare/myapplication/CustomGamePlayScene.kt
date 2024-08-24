@@ -1,5 +1,6 @@
 package com.medicare.myapplication
 
+import android.util.Log
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
@@ -48,21 +49,25 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CustomGamePlayScreen( musicViewModel: MusicViewModel,
                           gameStatsViewModel: GameStatsViewModel = viewModel(),
+                          navController: NavController,
                           lowerLim: Int,
                           upperLim: Int,
                           maxtrials: Int) {
+    Log.d("lowerlimit","$lowerLim")
+    Log.d("upperLim","$upperLim")
     var answer by rememberSaveable {
         mutableStateOf(generateRandomNumberFrom(lowerLim,upperLim).toString() ?: "0")
     }
 
     var userGuess by rememberSaveable { mutableStateOf("") }
     var attempts by rememberSaveable { mutableIntStateOf(0) }
-    var remainingAttempts by rememberSaveable { mutableStateOf(maxtrials) }
+    var remainingAttempts by rememberSaveable { mutableIntStateOf(maxtrials) }
     var result by rememberSaveable { mutableStateOf("") }
     var gameOver by rememberSaveable { mutableStateOf(false) }
     var winloose by rememberSaveable { mutableStateOf(false) }
@@ -195,9 +200,11 @@ fun CustomGamePlayScreen( musicViewModel: MusicViewModel,
                                     when {
                                         (guess > upperLim) -> {
                                             result = "Out of Bounds! Try Again"
+                                            attempts--
                                         }
                                         (guess < lowerLim) -> {
                                             result = "Out of Bounds! Try Again"
+                                            attempts--
                                         }
                                         (guess < answer.toIntOrNull()!!) -> result = "Too low! Try again."
                                         (guess > answer.toIntOrNull()!!) -> result = "Too high! Try again."
@@ -253,10 +260,12 @@ fun CustomGamePlayScreen( musicViewModel: MusicViewModel,
                             Spacer(Modifier.padding(16.dp))
                             ElevatedButton(
                                 onClick = {
-                                    answer = generateRandomNumberFrom1to100().toString()
+                                    focusManager.clearFocus()
+                                    answer = generateRandomNumberFrom(lowerLim,upperLim).toString()
                                     userGuess = ""
                                     attempts = 0
                                     result = ""
+                                    remainingAttempts = maxtrials
                                     gameOver = false
                                 },colors = ButtonDefaults.elevatedButtonColors(
                                     Color.Red,
@@ -265,6 +274,29 @@ fun CustomGamePlayScreen( musicViewModel: MusicViewModel,
                                     Color.White,
                                 )) {
                                 Text("Try Again",
+                                    color = Color.White,
+                                    fontSize = 24.sp,
+                                    fontFamily = FontFamily.SansSerif,
+                                    fontWeight = FontWeight.W600,
+                                    fontStyle = FontStyle.Normal,
+                                )
+                            }
+                            Spacer(Modifier.padding(8.dp))
+                            ElevatedButton(
+                                onClick = {
+                                    focusManager.clearFocus()
+                                    navController.navigate("custom"){
+                                        popUpTo("customgame/{lowerLim}/{upperLim}/{maxtrials}")
+                                        popUpTo("custom")
+                                        { inclusive = true }
+                                    }
+                                },colors = ButtonDefaults.elevatedButtonColors(
+                                    Color.Blue,
+                                    Color.White,
+                                    Color.White,
+                                    Color.White,
+                                )) {
+                                Text("Generate New",
                                     color = Color.White,
                                     fontSize = 24.sp,
                                     fontFamily = FontFamily.SansSerif,

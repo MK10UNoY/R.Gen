@@ -1,7 +1,10 @@
 package com.medicare.myapplication
 
+import kotlin.random.Random
+import kotlin.random.nextInt
+
 fun generateRandomNumberFrom(lowerLimit: Int, upperLimit: Int): Int {
-    return (lowerLimit until upperLimit).random()
+    return Random.nextInt(lowerLimit,upperLimit+1)
 }
 fun generateRandomNumberFrom1to100(): Int {
     val minValue = 1

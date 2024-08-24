@@ -115,7 +115,7 @@ fun MyRNGenApp(musicViewModel: MusicViewModel = viewModel(),gameStatsViewModel: 
             val lowerLim = backStackEntry.arguments?.getString("lowerLim")?.toIntOrNull() ?: 0
             val upperLim = backStackEntry.arguments?.getString("upperLim")?.toIntOrNull() ?: 0
             val maxtrails = backStackEntry.arguments?.getString("maxtrials")?.toIntOrNull() ?: 0
-            CustomGamePlayScreen(musicViewModel,gameStatsViewModel,lowerLim, upperLim, maxtrails)
+            CustomGamePlayScreen(musicViewModel,gameStatsViewModel,navController,lowerLim, upperLim, maxtrails)
         }
     }
 }
