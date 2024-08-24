@@ -10,9 +10,10 @@ This is a simple number guessing game built using Jetpack Compose for Android. T
 - **Game Over Screen**: Players are informed when they have won or lost and can choose to play again.
 
 ## Screenshots
-![Gameplay Screenshot](https://github.com/MK10UNoY/BeginnersGuidetoAndroid/tree/main/screenshots/win%20(1).png?raw=true)
-![Home Screen Screenshot](https://github.com/MK10UNoY/BeginnersGuidetoAndroid/tree/main/screenshots/win%20(2).png)
-![Lose Screen Screenshot](https://github.com/MK10UNoY/BeginnersGuidetoAndroid/tree/main/screenshots/win%20(3).png)
+![win (1)](https://github.com/user-attachments/assets/66139c5b-2aec-42f3-93f8-bf14c7ef2794)
+![win (3)](https://github.com/user-attachments/assets/01fb37b2-b4da-4288-88e2-554465009764)
+![win (2)](https://github.com/user-attachments/assets/8b86e0f4-daf6-406a-8120-a95a3b0747c9)
+
 
 ## How to Play
 1. Enter your desired range (lower and upper limits) and the number of attempts allowed.
